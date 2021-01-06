@@ -17,7 +17,7 @@ _driverInfo = None
 _driver_name = ''
 
 # get Config
-_config_path = './etc/uiotedge/config.json'
+_config_path = './etc/iotedge/config.json'
 with open(_config_path, 'r') as load_f:
     try:
         load_dict = json.load(load_f)
@@ -46,7 +46,7 @@ print("driver_id: {}, driver name:{}".format(_driver_id, _driver_name))
 class _Logger(object):
     def __init__(self, name):
         self.url = os.environ.get(
-            'UIOTEDGE_NATS_ADDRESS') or 'tcp://127.0.0.1:4222'
+            'IOTEDGE_NATS_ADDRESS') or 'tcp://127.0.0.1:4222'
         self.nc = NATS()
         self.loop = asyncio.new_event_loop()
         self.queue = queue.Queue()

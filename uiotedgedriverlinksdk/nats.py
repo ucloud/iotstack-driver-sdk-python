@@ -27,7 +27,7 @@ _nat_subscribe_queue = queue.Queue()
 class natsClientPub(object):
     def __init__(self):
         self.url = os.environ.get(
-            'UIOTEDGE_NATS_ADDRESS') or 'tcp://127.0.0.1:4222'
+            'IOTEDGE_NATS_ADDRESS') or 'tcp://127.0.0.1:4222'
         self.nc = NATS()
         self.loop = asyncio.new_event_loop()
 
@@ -59,7 +59,7 @@ class natsClientPub(object):
 class natsClientSub(object):
     def __init__(self):
         self.url = os.environ.get(
-            'UIOTEDGE_NATS_ADDRESS') or 'tcp://127.0.0.1:4222'
+            'IOTEDGE_NATS_ADDRESS') or 'tcp://127.0.0.1:4222'
         self.nc = NATS()
         self.loop = asyncio.new_event_loop()
 

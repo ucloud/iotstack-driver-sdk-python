@@ -18,6 +18,6 @@ setup(
         "asyncio-nats-client>=0.10.0",
         "cachetools>=4.0.0"
     ],
-    description="UIoT Edge Driver Link SDK",
+    description="IoT Edge Driver Link SDK",
     long_description="UIoT Edge Driver Link SDK\n https://www.ucloud.cn/site/product/uiot.html"
 )

@@ -2,9 +2,9 @@ import json
 import logging
 import time
 
-from uiotedgedriverlinksdk import getLogger
-from uiotedgedriverlinksdk.client import Config, SubDevice
-from uiotedgedriverlinksdk.exception import BaseEdgeException
+from iotedgedriverlinksdk import getLogger
+from iotedgedriverlinksdk.client import Config, SubDevice
+from iotedgedriverlinksdk.exception import BaseEdgeException
 
 # 配置log
 log = getLogger()

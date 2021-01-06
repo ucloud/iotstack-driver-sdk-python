@@ -9,13 +9,13 @@ import tornado.ioloop
 import tornado.web
 from tornado.websocket import WebSocketHandler
 
-from uiotedgedriverlinksdk import getLogger
-from uiotedgedriverlinksdk.client import Config, SubDevice, getConfig
-from uiotedgedriverlinksdk.edge import (add_topo, delete_topo, get_topo,
+from iotedgedriverlinksdk import getLogger
+from iotedgedriverlinksdk.client import Config, SubDevice, getConfig
+from iotedgedriverlinksdk.edge import (add_topo, delete_topo, get_topo,
                                         register_device,
                                         set_on_status_change_callback,
                                         set_on_topo_change_callback)
-from uiotedgedriverlinksdk.exception import (
+from iotedgedriverlinksdk.exception import (
     BaseEdgeException, EdgeDriverLinkDeviceOfflineException,
     EdgeDriverLinkException, EdgeDriverLinkOfflineException,
     EdgeDriverLinkTimeoutException)

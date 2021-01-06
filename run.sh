@@ -7,5 +7,5 @@ sudo python3 -m twine upload dist/*.whl
 
 sudo rm -rf build
 sudo rm -rf dist
-sudo rm -rf uiotedge_driver_link_sdk.egg-info
+sudo rm -rf iotedge_driver_link_sdk.egg-info
 

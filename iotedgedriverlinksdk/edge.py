@@ -8,11 +8,11 @@ import time
 
 from cachetools import TTLCache
 
-from uiotedgedriverlinksdk import _driver_id, getLogger
-from uiotedgedriverlinksdk.exception import (EdgeDriverLinkException,
+from iotedgedriverlinksdk import _driver_id, getLogger
+from iotedgedriverlinksdk.exception import (EdgeDriverLinkException,
                                              EdgeDriverLinkOfflineException,
                                              EdgeDriverLinkTimeoutException)
-from uiotedgedriverlinksdk.nats import (_nat_publish_queue,
+from iotedgedriverlinksdk.nats import (_nat_publish_queue,
                                         _nat_subscribe_queue, publish_nats_msg)
 
 _logger = getLogger()

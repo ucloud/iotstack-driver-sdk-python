@@ -11,7 +11,7 @@ import time
 
 from nats.aio.client import Client as NATS
 from nats.aio.errors import NatsError
-from uiotedgedriverlinksdk import _driver_id, getLogger
+from iotedgedriverlinksdk import _driver_id, getLogger
 
 _logger = getLogger()
 

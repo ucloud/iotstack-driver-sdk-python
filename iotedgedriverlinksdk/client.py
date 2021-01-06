@@ -1,12 +1,12 @@
 import json
 
-from uiotedgedriverlinksdk import _deviceInfos, _driverInfo
-from uiotedgedriverlinksdk.edge import (add_connect_map, del_connect_map,
+from iotedgedriverlinksdk import _deviceInfos, _driverInfo
+from iotedgedriverlinksdk.edge import (add_connect_map, del_connect_map,
                                         device_login_async, device_login_sync,
                                         device_logout_async,
                                         device_logout_sync, register_device,
                                         send_message)
-from uiotedgedriverlinksdk.exception import (
+from iotedgedriverlinksdk.exception import (
     EdgeDriverLinkDeviceConfigException, EdgeDriverLinkDeviceOfflineException,
     EdgeDriverLinkDeviceProductSecretException)
 

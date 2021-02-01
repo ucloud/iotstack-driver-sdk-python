@@ -34,6 +34,7 @@
 * SubDevice#**[set_device_sn()](#set_device_sn)**
 * SubDevice#**[set_product_secret()](#set_product_secret)**
 * SubDevice#**[set_msg_callback()](#set_msg_callback)**
+* SubDevice#**[set_rrpc_callback()](#set_rrpc_callback)**
 * SubDevice#**[login()](#login)**
 * SubDevice#**[logout()](#logout)**
 * SubDevice#**[publish()](#publish)**
@@ -131,6 +132,13 @@ DeviceInfo包括如下信息：
 设置子设备的接收消息的回调函数
 
 * set_msg_callback`func`: 子设备收消息回调，例如：` def callbacl(topic:str, msg:b''): print(str(msg,'utf-8')`
+
+---
+<a name="set_rrpc_callback"></a>
+### SubDevice.set_rrpc_callback(msg_callback)
+设置子设备的接收RRPC的回调函数
+
+* set_RRPC_callback`func`: 子设备收消息回调，例如：` def callbacl(topic:str, msg:b''): print(str(msg,'utf-8')`
 
 
 ---

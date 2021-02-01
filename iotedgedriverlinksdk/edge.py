@@ -1,3 +1,10 @@
+from iotedgedriverlinksdk.nats import (_nat_publish_queue,
+                                       _nat_subscribe_queue, publish_nats_msg)
+from iotedgedriverlinksdk.exception import (EdgeDriverLinkException,
+                                            EdgeDriverLinkOfflineException,
+                                            EdgeDriverLinkTimeoutException)
+from iotedgedriverlinksdk import _driver_id, getLogger
+from cachetools import TTLCache
 import base64
 import json
 import queue
@@ -5,15 +12,8 @@ import random
 import string
 import threading
 import time
+import re
 
-from cachetools import TTLCache
-
-from iotedgedriverlinksdk import _driver_id, getLogger
-from iotedgedriverlinksdk.exception import (EdgeDriverLinkException,
-                                             EdgeDriverLinkOfflineException,
-                                             EdgeDriverLinkTimeoutException)
-from iotedgedriverlinksdk.nats import (_nat_publish_queue,
-                                        _nat_subscribe_queue, publish_nats_msg)
 
 _logger = getLogger()
 _action_queue_map = {}
@@ -396,6 +396,10 @@ def _on_message(message):
         # _logger.debug("normal message payload: {}".format(str(msg, 'utf-8')))
         if identify in _connect_map:
             sub_dev = _connect_map[identify]
+            if isinstance(topic, str) and topic.startswith("/$system/") and topic.find("/rrpc/request/") > 0:
+                if sub_dev.rrpc:
+                    sub_dev.rrpc(topic, msg)
+
             if sub_dev.callback:
                 sub_dev.callback(topic, msg)
         else:

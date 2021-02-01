@@ -2,10 +2,10 @@ import json
 
 from iotedgedriverlinksdk import _deviceInfos, _driverInfo
 from iotedgedriverlinksdk.edge import (add_connect_map, del_connect_map,
-                                        device_login_async, device_login_sync,
-                                        device_logout_async,
-                                        device_logout_sync, register_device,
-                                        send_message)
+                                       device_login_async, device_login_sync,
+                                       device_logout_async,
+                                       device_logout_sync, register_device,
+                                       send_message)
 from iotedgedriverlinksdk.exception import (
     EdgeDriverLinkDeviceConfigException, EdgeDriverLinkDeviceOfflineException,
     EdgeDriverLinkDeviceProductSecretException)
@@ -17,6 +17,7 @@ class SubDevice(object):
         self.product_sn = product_sn
         self.product_secret = ''
         self.callback = on_msg_callback
+        self.rrpc = None
         self.online = False
         if self.product_sn != '' and self.device_sn != '':
             self._identity = self.product_sn+'.'+self.device_sn
@@ -36,6 +37,9 @@ class SubDevice(object):
 
     def set_msg_callback(self, msg_callback):
         self.callback = msg_callback
+
+    def set_rrpc_callback(self, msg_callback):
+        self.rrpc = msg_callback
 
     def get_device_info(self):
         return {

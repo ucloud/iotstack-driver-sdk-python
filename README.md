@@ -135,10 +135,10 @@ DeviceInfo包括如下信息：
 
 ---
 <a name="set_rrpc_callback"></a>
-### SubDevice.set_rrpc_callback(msg_callback)
+### SubDevice.set_rrpc_callback(msg_callback)->bytes
 设置子设备的接收RRPC的回调函数
 
-* set_RRPC_callback`func`: 子设备收消息回调，例如：` def callbacl(topic:str, msg:b''): print(str(msg,'utf-8')`
+* set_RRPC_callback`func`: 子设备收消息回调，例如：` def callback(topic:str, msg:b''): return b 'hello'`
 
 
 ---

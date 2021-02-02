@@ -38,8 +38,8 @@ class SubDevice(object):
     def set_msg_callback(self, msg_callback):
         self.callback = msg_callback
 
-    def set_rrpc_callback(self, msg_callback):
-        self.rrpc = msg_callback
+    def set_rrpc_callback(self, rrpc_callback):
+        self.rrpc = rrpc_callback
 
     def get_device_info(self):
         return {

@@ -398,11 +398,14 @@ def _on_message(message):
             sub_dev = _connect_map[identify]
             if isinstance(topic, str) and topic.startswith("/$system/") and topic.find("/rrpc/request/") > 0:
                 if sub_dev.rrpc:
+                    _logger.debug("rrpc request: {}".format(str(message)))
                     resp = sub_dev.rrpc(topic, msg)
-                    if not resp:
+                    if resp:
+                        _logger.debug("rrpc response: {}".format(str(resp)))
                         topic = topic.replace(
                             "/rrpc/request/", "/rrpc/response/", 1)
                         sub_dev.publish(topic, resp)
+                    return
 
             if sub_dev.callback:
                 sub_dev.callback(topic, msg)

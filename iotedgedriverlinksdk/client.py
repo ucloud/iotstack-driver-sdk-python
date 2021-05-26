@@ -80,7 +80,7 @@ class SubDevice(object):
                                device_sn=self.device_sn)
         self.online = True
 
-    def publish(self, topic: str, payload: b''):
+    def publish(self, topic: str, payload: bytes):
         if self.online:
             send_message(topic, payload, is_cached=False,
                          duration=0)

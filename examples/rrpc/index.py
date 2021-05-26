@@ -44,10 +44,10 @@ if __name__ == "__main__":
         # 获取子设备的DeviceSN ，key值为 ‘deviceSN’
         deviceSN = subDeviceInfo['deviceSN']
 
-        def callback(topic: str, payload: b''):
+        def callback(topic: str, payload: bytes):
             log.info("recv message from {} : {}".format(topic, str(payload)))
 
-        def rrpc_callback(topic: str, payload: b''):
+        def rrpc_callback(topic: str, payload: bytes):
             return b'{"a":1}'
 
             # 初始化一个子设备对象
@@ -75,7 +75,7 @@ if __name__ == "__main__":
         while True:
             time.sleep(uploadPeriod)
 
-    except BaseEdgeException:
+    except BaseEdgeException as e:
         log.error('Edge Exception: {}'.format(str(e)))
     except Exception as e:
         log.error('Exception error: {}'.format(str(e)))

@@ -12,9 +12,9 @@ from tornado.websocket import WebSocketHandler
 from iotedgedriverlinksdk import getLogger
 from iotedgedriverlinksdk.client import Config, SubDevice, getConfig
 from iotedgedriverlinksdk.edge import (add_topo, delete_topo, get_topo,
-                                        register_device,
-                                        set_on_status_change_callback,
-                                        set_on_topo_change_callback)
+                                       register_device,
+                                       set_on_status_change_callback,
+                                       set_on_topo_change_callback)
 from iotedgedriverlinksdk.exception import (
     BaseEdgeException, EdgeDriverLinkDeviceOfflineException,
     EdgeDriverLinkException, EdgeDriverLinkOfflineException,
@@ -47,16 +47,12 @@ class WebSocketSever(WebSocketHandler):
         try:
             product_sn = self.get_argument('product_sn')
             device_sn = self.get_argument('device_sn')
-        except tornado.web.MissingArgumentError as e:
-            self.close(reason=str(e))
-        else:
             log.info("websocket connect from: {}.{}".format(
                 product_sn, device_sn))
             self.product_sn = product_sn
             self.device_sn = device_sn
             self.client_id = product_sn+'.'+device_sn
 
-        try:
             self.client.set_product_sn(product_sn)
             self.client.set_device_sn(device_sn)
             self.client.login()

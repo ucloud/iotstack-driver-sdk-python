@@ -1,5 +1,5 @@
 from iotedgedriverlinksdk.nats import (_nat_publish_queue,
-                                       _nat_subscribe_queue, publish_nats_msg)
+                                       _nat_subscribe_queue, _publish_nats_msg)
 from iotedgedriverlinksdk.exception import (EdgeDriverLinkException,
                                             EdgeDriverLinkOfflineException,
                                             EdgeDriverLinkTimeoutException)
@@ -329,7 +329,7 @@ def device_logout_sync(product_sn, device_sn, timeout=5):
         raise e
 
 
-def send_message(topic: str, payload: b'', is_cached=False, duration=0):
+def send_message(topic: str, payload: bytes, is_cached=False, duration=0):
     _publish(topic=topic, payload=payload,
              is_cached=is_cached, duration=duration)
 
@@ -417,7 +417,7 @@ def _on_message(message):
         _logger.error(e)
 
 
-def _publish(topic: str, payload: b'', is_cached=False, duration=0):
+def _publish(topic: str, payload: bytes, is_cached=False, duration=0):
     try:
         payload_encode = base64.b64encode(payload)
         data = {
@@ -427,7 +427,7 @@ def _publish(topic: str, payload: b'', is_cached=False, duration=0):
             'duration': duration,
             'payload': str(payload_encode, 'utf-8')
         }
-        publish_nats_msg(data)
+        _publish_nats_msg(data)
     except Exception as e:
         _logger.error(e)
         raise e

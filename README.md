@@ -57,8 +57,8 @@
 
 #### from uiotedgedriverlinksdk.nats
 
-- **[natsPublish()](#register)**
-- **[natsSubscribe()](#set_on_topo_change_callback)**
+- **[natsPublish()](#natsPublish)**
+- **[natsSubscribe()](#natsSubscribe)**
 
 ---
 

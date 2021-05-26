@@ -167,12 +167,19 @@ def natsSubscribe(subject, queue, cb):
 
 def _start_pub():
     _natsClientPub().start()
-    _natsClientPub().start()
+
+
+def _nats_pub():
+    _natsPublish().start()
 
 
 def _start_sub():
     _natsClientSub().start()
 
+
+_t_pub = threading.Thread(target=_nats_pub)
+_t_pub.setDaemon(True)
+_t_pub.start()
 
 _t_nats_pub = threading.Thread(target=_start_pub)
 _t_nats_pub.setDaemon(True)
